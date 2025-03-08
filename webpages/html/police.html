@@ -70,14 +70,31 @@
                   name="stationId"
                   type="text"
                   class="form-input"
-                  placeholder="e.g., PS-12345"
+                  placeholder="Enter Station Id"
                 >
                 <div class="error-message" id="stationId-error">
                   <i data-feather="alert-circle"></i> <span></span>
                 </div>
               </div>
             </div>
-            
+            <div class="form-group">
+              <label for="stationId" class="form-label">
+                <i data-feather="home"></i>
+                Station
+              </label>
+              <div class="input-container">
+                <input
+                  id="stationId"
+                  name="stationId"
+                  type="text"
+                  class="form-input"
+                  placeholder="Enter Station Name"
+                >
+                <div class="error-message" id="stationId-error">
+                  <i data-feather="alert-circle"></i> <span></span>
+                </div>
+              </div>
+            </div>
             <div class="form-group">
               <label for="location" class="form-label">
                 <i data-feather="map-pin"></i>
@@ -89,7 +106,7 @@
                   name="location"
                   type="text" 
                   class="form-input"
-                  placeholder="e.g., 123 Main Street, City"
+                  placeholder="Enter Station Location"
                 >
                 <div class="error-message" id="location-error">
                   <i data-feather="alert-circle"></i> <span></span>
@@ -108,68 +125,13 @@
                   name="officer"
                   type="text"
                   class="form-input"
-                  placeholder="e.g., Officer John Smith"
+                  placeholder="Enter Chief Officer Name"
                 >
                 <div class="error-message" id="officer-error">
                   <i data-feather="alert-circle"></i> <span></span>
                 </div>
               </div>
             </div>
-            
-            <div class="form-group">
-              <label for="phoneNumber" class="form-label">
-                <i data-feather="phone"></i>
-                Phone Number
-              </label>
-              <div class="input-container">
-                <input
-                  id="phoneNumber"
-                  name="phoneNumber"
-                  type="tel"
-                  class="form-input"
-                  placeholder="e.g., (555) 123-4567"
-                >
-                <div class="error-message" id="phoneNumber-error">
-                  <i data-feather="alert-circle"></i> <span></span>
-                </div>
-              </div>
-            </div>
-            
-            <div class="form-group">
-              <label for="email" class="form-label">
-                <i data-feather="mail"></i>
-                Email Address
-              </label>
-              <div class="input-container">
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  class="form-input"
-                  placeholder="e.g., officer@police.gov"
-                >
-                <div class="error-message" id="email-error">
-                  <i data-feather="alert-circle"></i> <span></span>
-                </div>
-              </div>
-            </div>
-            
-            <div class="form-group">
-              <label for="description" class="form-label">
-                <i data-feather="file-text"></i>
-                Additional Information
-              </label>
-              <div class="input-container">
-                <textarea
-                  id="description"
-                  name="description"
-                  rows="4"
-                  class="form-textarea"
-                  placeholder="Any additional details about the station..."
-                ></textarea>
-              </div>
-            </div>
-            
             <button type="submit" id="submit-button" class="submit-button">
               Submit Information
             </button>
@@ -193,11 +155,7 @@
     </main>
     
     <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-container">
-        © <span id="current-year"></span> Police Information System. All rights reserved.
-      </div>
-    </footer>
+    
   </div>
   
   <!-- Add JavaScript for form validation and animations -->
