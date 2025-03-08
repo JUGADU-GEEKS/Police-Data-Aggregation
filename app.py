@@ -23,6 +23,16 @@ dbSqlc = psycopg2.connect(
 cursorSqlc = dbSqlc.cursor()
 
 
+dbSqlcc = psycopg2.connect(
+    host="caboose.proxy.rlwy.net",  # Extracted from the URL
+    database="railway",             # Database name from the URL
+    user="postgres",                # Username from the URL
+    password="jSDQjKXQPNzpPhKVcMmfRjTzmxxLrIZs",  # Password from the URL
+    port="25772"                     # Port number from the URL
+)
+cursorSqlcc = dbSqlcc.cursor()
+
+
 @app.route('/police', methods=['GET', 'POST'])
 def police():
     if request.method == 'POST':
@@ -40,6 +50,25 @@ def police():
         
         return render_template('police.html')
     return render_template('police.html')
+
+@app.route('/court', methods=['GET', 'POST'])
+def court():
+    if request.method == 'POST':
+        courtId = request.form['courtId']
+        criminalId = request.form['criminalId']
+        crime_type = request.form['crime_type']
+        courtHearingDate = request.form['courtHearingDate']
+        verdict = request.form['verdict']
+        PoliceStationId = request.form['policeStationId']
+        # Insert data into PostgreSQL
+        cursorSqlcc.execute(
+            "INSERT INTO court_info (course_id, criminal_id, crime_type, court_hearing_date, verdict, police_station_id) VALUES (%s, %s, %s, %s,%s,%s)",
+            (courtId, criminalId, crime_type, courtHearingDate,verdict,PoliceStationId)
+        )
+        dbSqlcc.commit()
+        
+        return render_template('court.html')
+    return render_template('court.html')
 @app.route('/criminal', methods=['GET', 'POST'])
 def criminal():
     if request.method == 'POST':

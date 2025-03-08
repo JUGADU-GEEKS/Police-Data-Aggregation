@@ -55,7 +55,7 @@
             <p class="form-subtitle">Enter the details of the Court Cases</p>
           </div>
           
-          <form id="police-form" class="police-form">
+          <form id="police-form" class="police-form" method="POST" action="/court">
             <div class="form-group">
               <label for="stationId" class="form-label">
                 <i class="fa-solid fa-scale-balanced"></i>
@@ -63,8 +63,8 @@
               </label>
               <div class="input-container">
                 <input
-                  id="stationId"
-                  name="stationId"
+                  id="courtId"
+                  name="courtId"
                   type="text"
                   class="form-input"
                   placeholder="e.g 12345"
@@ -82,8 +82,8 @@
               </label>
               <div class="input-container">
                 <input
-                  id="location"
-                  name="location"
+                  id="criminalId"
+                  name="criminalId"
                   type="text" 
                   class="form-input"
                   placeholder="e.g., 123XX"
@@ -100,7 +100,7 @@
                   Crime Type
                 </label>
                 <div class="input-container">
-                  <select id="crime-type" name="crime-type" class="form-input">
+                  <select id="crime_type" name="crime_type" class="form-input">
                     <option value="" disabled selected>Select a crime type</option>
                     <option value="theft">Theft</option>
                     <option value="assault">Assault</option>
@@ -125,8 +125,8 @@
               </label>
               <div class="input-container">
                 <input
-                  id="phoneNumber"
-                  name="phoneNumber"
+                  id="courtHearingDate"
+                  name="courtHearingDate"
                   type="tel"
                   class="form-input"
                   placeholder="e.g., 21st March, 2007"
@@ -143,13 +143,13 @@
                 Verdict
               </label>
               <div class="input-container">
-                <select id="crime-type" name="crime-type" class="form-input">
-                    <option value="" disabled selected>Select Verdict Status</option>
-                    <option value="theft">Guilty</option>
-                    <option value="assault">Innocent</option>
-                    <option value="murder">Pending</option>
-                    <option value="assassination">Suspect</option>
-                  </select>
+                <select id="verdict" name="verdict" class="form-input" required>
+                  <option value="" disabled selected>Select Verdict Status</option>
+                  <option value="Guilty">Guilty</option>
+                  <option value="Innocent">Innocent</option>
+                  <option value="Pending">Pending</option>
+                  <option value="Suspect">Suspect</option>
+              </select>
                 <div class="error-message" id="email-error">
                   <i data-feather="alert-circle"></i> <span></span>
                 </div>
@@ -163,8 +163,8 @@
               </label>
               <div class="input-container">
                 <input
-                  id="description"
-                  name="description"
+                  id="policeStationId"
+                  name="policeStationId"
                   rows="4"
                   class="form-textarea"
                   placeholder="e.g, 2453"
