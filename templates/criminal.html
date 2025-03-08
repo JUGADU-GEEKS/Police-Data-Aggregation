@@ -42,14 +42,14 @@
             <p class="form-subtitle">Enter the details of the criminal</p>
           </div>
           
-          <form id="police-form" class="police-form">
+          <form id="police-form" class="police-form" method="POST" action="/criminal">
             <div class="form-group">
               <label for="stationId" class="form-label">
                 <i data-feather="hash"></i>
                 Criminal ID
               </label>
               <div class="input-container">
-                <input id="stationId" name="stationId" type="text" class="form-input" placeholder="e.g., Cid-12345">
+                <input id="criminalId" name="criminalId" type="text" class="form-input" placeholder="e.g., Cid-12345">
               </div>
             </div>
             
@@ -59,7 +59,7 @@
                 Name
               </label>
               <div class="input-container">
-                <input id="location" name="location" type="text" class="form-input" placeholder="e.g., Aman Sharma">
+                <input id="name" name="name" type="text" class="form-input" placeholder="e.g., Aman Sharma">
               </div>
             </div>
             
@@ -101,30 +101,14 @@
               </div>
             </div>
             
-            <div class="form-group">
-              <label for="description" class="form-label">
-                <i data-feather="info"></i>
-                Additional Information
-              </label>
-              <div class="input-container">
-                <textarea id="description" name="description" rows="4" class="form-textarea" placeholder="Any additional details..."></textarea>
-              </div>
-            </div>
-            
             <button type="submit" id="submit-button" class="submit-button">Submit Information</button>
           </form>
         </div>
       </div>
     </main>
-    
-    <footer class="footer">
-      <div class="footer-container">
-        © <span id="current-year"></span> Police Information System. All rights reserved.
-      </div>
-    </footer>
   </div>
   
-  <script src="/webpages/js/police.js"></script>
+  <script src="/static/js/police.js"></script>
   <script>
     feather.replace();
   </script>
