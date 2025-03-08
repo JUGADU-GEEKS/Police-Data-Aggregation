@@ -42,14 +42,14 @@
             <p class="form-subtitle">Enter the details of the criminal</p>
           </div>
           
-          <form id="police-form" class="police-form">
+          <form id="police-form" class="police-form" method="POST" action="/criminal">
             <div class="form-group">
               <label for="stationId" class="form-label">
                 <i data-feather="hash"></i>
                 Criminal ID
               </label>
               <div class="input-container">
-                <input id="stationId" name="stationId" type="text" class="form-input" placeholder="e.g., Cid-12345">
+                <input id="criminalId" name="criminalId" type="text" class="form-input" placeholder="e.g., Cid-12345">
               </div>
             </div>
             
@@ -59,7 +59,7 @@
                 Name
               </label>
               <div class="input-container">
-                <input id="location" name="location" type="text" class="form-input" placeholder="e.g., Aman Sharma">
+                <input id="name" name="name" type="text" class="form-input" placeholder="e.g., Aman Sharma">
               </div>
             </div>
             
