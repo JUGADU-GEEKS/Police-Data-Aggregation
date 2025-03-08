@@ -58,7 +58,7 @@
             <p class="form-subtitle">Enter the details of the police station</p>
           </div>
           
-          <form id="police-form" class="police-form">
+          <form action="/police" method="POST" id="police-form" class="police-form">
             <div class="form-group">
               <label for="stationId" class="form-label">
                 <i data-feather="home"></i>
@@ -80,12 +80,12 @@
             <div class="form-group">
               <label for="stationId" class="form-label">
                 <i data-feather="home"></i>
-                Station
+                Station Name
               </label>
               <div class="input-container">
                 <input
-                  id="stationId"
-                  name="stationId"
+                  id="stationName"
+                  name="stationName"
                   type="text"
                   class="form-input"
                   placeholder="Enter Station Name"

@@ -16,7 +16,7 @@ def police():
     if request.method=='POST':
         stationId = request.form['stationId']
         stationName = request.form['stationName']
-        location = request.form['location'],
+        location = request.form['location']
         officerName = request.form['officer']
         cursorSql.execute("INSERT INTO police_info(station_id, station_name, location, officer_name) VALUES (%s, %s, %s, %s)",(stationId, stationName, location, officerName))
         dbSql.commit()
