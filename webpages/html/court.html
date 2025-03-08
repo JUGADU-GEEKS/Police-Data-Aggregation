@@ -55,7 +55,7 @@
             <p class="form-subtitle">Enter the details of the Court Cases</p>
           </div>
           
-          <form id="police-form" class="police-form">
+          <form id="police-form" class="police-form" method="POST" action="/court">
             <div class="form-group">
               <label for="stationId" class="form-label">
                 <i class="fa-solid fa-scale-balanced"></i>
@@ -64,7 +64,7 @@
               <div class="input-container">
                 <input
                   id="stationId"
-                  name="stationId"
+                  name="courtId"
                   type="text"
                   class="form-input"
                   placeholder="e.g 12345"
@@ -100,7 +100,7 @@
                   Crime Type
                 </label>
                 <div class="input-container">
-                  <select id="crime-type" name="crime-type" class="form-input">
+                  <select id="case_type" name="crime_type" class="form-input">
                     <option value="" disabled selected>Select a crime type</option>
                     <option value="theft">Theft</option>
                     <option value="assault">Assault</option>
@@ -164,7 +164,7 @@
               <div class="input-container">
                 <input
                   id="description"
-                  name="description"
+                  name="station_id"
                   rows="4"
                   class="form-textarea"
                   placeholder="e.g, 1234"
