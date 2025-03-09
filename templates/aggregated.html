@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Query System</title>
+    <link rel="stylesheet" href="/static/css/aggregated.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Ask Your Database</h1>
+        <p>Enter your query in English, and we will fetch the results.</p>
+
+        <form action="/query" method="POST">
+            <label for="userQuery">Enter your query:</label>
+            <input type="text" id="userQuery" name="userQuery" required placeholder="e.g., Show all criminals in New York">
+            <button type="submit">Submit Query</button>
+        </form>
+
+        {% if sql_query %}
+            <h2>Generated SQL Query:</h2>
+            <p>{{ sql_query }}</p>
+
+            {% if results %}
+                <h2>Results:</h2>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            {% for column in column_names %}
+                                <th>{{ column }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in results %}
+                            <tr>
+                                {% for value in row %}
+                                    <td>{{ value }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No results found.</p>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>
