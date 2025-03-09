@@ -62,14 +62,14 @@
                         <p class="form-subtitle">Enter the details</p>
                     </div>
 
-                    <form id="police-form" class="police-form">
+                    <form id="police-form" class="police-form" action="/" method="POST">
                         <div class="form-group">
                             <label for="stationId" class="form-label">
                                 <i data-feather="home"></i>
                                 Police Station ID
                             </label>
                             <div class="input-container">
-                                <input id="stationId" name="stationId" type="text" class="form-input"
+                                <input id="station_id" name="station_id" type="text" class="form-input"
                                     placeholder="Optional" value="None">
                                 <div class="error-message" id="stationId-error">
                                     <i data-feather="alert-circle"></i> <span></span>
@@ -97,7 +97,7 @@
                                 Officer Name
                             </label>
                             <div class="input-container">
-                                <input id="officer" name="officer" type="text" class="form-input" value="None">
+                                <input id="officer_name" name="officer_name" type="text" class="form-input" value="None">
                                 <div class="error-message" id="officer-error">
                                     <i data-feather="alert-circle"></i> <span></span>
                                 </div>
@@ -110,7 +110,7 @@
                                 Police Station Name
                             </label>
                             <div class="input-container">
-                                <input id="psname" name="psname" type="text" class="form-input" value="None">
+                                <input id="station_name" name="station_name" type="text" class="form-input" value="None">
                                 <div class="error-message" id="phoneNumber-error">
                                     <i data-feather="alert-circle"></i> <span></span>
                                 </div>
@@ -123,7 +123,7 @@
                                 Court Id
                             </label>
                             <div class="input-container">
-                                <input id="courtId" name="courtId" type="text" class="form-input" value="None">
+                                <input id="course_id" name="course_id" type="text" class="form-input" value="None">
                                 <div class="error-message" id="email-error">
                                     <i data-feather="alert-circle"></i> <span></span>
                                 </div>
@@ -136,7 +136,7 @@
                                 Crime Type
                             </label>
                             <div class="input-container">
-                                <input id="crime" name="crime" type="text" class="form-input" value="None">
+                                <input id="crime_type" name="crime_type" type="text" class="form-input" value="None">
                                 <div class="error-message" id="email-error">
                                     <i data-feather="alert-circle"></i> <span></span>
                                 </div>
@@ -149,7 +149,7 @@
                                 Criminal ID
                             </label>
                             <div class="input-container">
-                                <input id="criminalId" name="criminalId" type="text" class="form-input" value="None">
+                                <input id="criminalid" name="criminalid" type="text" class="form-input" value="None">
                                 <div class="error-message" id="criminalId-error">
                                     <i data-feather="alert-circle"></i> <span></span>
                                 </div>
@@ -162,7 +162,7 @@
                                 Criminal Name
                             </label>
                             <div class="input-container">
-                                <input id="criminalName" name="criminalName" type="text" class="form-input"
+                                <input id="name" name="name" type="text" class="form-input"
                                     value="None">
                                 <div class="error-message" id="criminalName-error">
                                     <i data-feather="alert-circle"></i> <span></span>
@@ -176,7 +176,7 @@
                                 Criminal Status
                             </label>
                             <div class="input-container">
-                                <input id="criminalStatus" name="criminalStatus" type="text" class="form-input"
+                                <input id="status" name="status" type="text" class="form-input"
                                     placeholder="e.g. Jailed, Wanted, Released" value="None">
                                 <div class="error-message" id="criminalStatus-error">
                                     <i data-feather="alert-circle"></i> <span></span>

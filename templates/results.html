@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Results</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <div class="container mx-auto my-10 p-6 bg-white shadow-lg rounded-lg">
+        <h1 class="text-3xl font-bold text-center mb-6">Query Results</h1>
+
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-white border border-gray-300 rounded-lg shadow-md">
+                <thead class="bg-gray-800 text-white">
+                    <tr>
+                        <!-- Police Info Columns -->
+                        <th class="px-4 py-2 border">Station ID</th>
+                        <th class="px-4 py-2 border">Station Name</th>
+                        <th class="px-4 py-2 border">Location</th>
+                        <th class="px-4 py-2 border">Officer Name</th>
+                        
+                        <!-- Court Info Columns -->
+                        <th class="px-4 py-2 border">Court Case ID</th>
+                        <th class="px-4 py-2 border">Criminal ID</th>
+                        <th class="px-4 py-2 border">Crime Type</th>
+                        <th class="px-4 py-2 border">Hearing Date</th>
+                        <th class="px-4 py-2 border">Verdict</th>
+
+                        <!-- Criminal Info Columns -->
+                        <th class="px-4 py-2 border">Criminal Name</th>
+                        <th class="px-4 py-2 border">Gender</th>
+                        <th class="px-4 py-2 border">Crime Description</th>
+                        <th class="px-4 py-2 border">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in range(results.police_info | length) %}
+                    <tr class="border-b hover:bg-gray-100">
+                        <!-- Police Info Data -->
+                        {% set police = results.police_info[i] if results.police_info|length > i else None %}
+                        <td class="px-4 py-2 border">{% if police %}{{ police[0] }}{% else %}-{% endif %}</td>
+                        <td class="px-4 py-2 border">{% if police %}{{ police[1] }}{% else %}-{% endif %}</td>
+                        <td class="px-4 py-2 border">{% if police %}{{ police[2] }}{% else %}-{% endif %}</td>
+                        <td class="px-4 py-2 border">{% if police %}{{ police[3] }}{% else %}-{% endif %}</td>
+
+                        <!-- Court Info Data -->
+                        {% set court = results.court_info[i] if results.court_info|length > i else None %}
+                        <td class="px-4 py-2 border">{% if court %}{{ court[0] }}{% else %}-{% endif %}</td>
+                        <td class="px-4 py-2 border">{% if court %}{{ court[1] }}{% else %}-{% endif %}</td>
+                        <td class="px-4 py-2 border">{% if court %}{{ court[2] }}{% else %}-{% endif %}</td>
+                        <td class="px-4 py-2 border">{% if court %}{{ court[3] }}{% else %}-{% endif %}</td>
+                        <td class="px-4 py-2 border">{% if court %}{{ court[4] }}{% else %}-{% endif %}</td>
+
+                        <!-- Criminal Info Data -->
+                        {% set criminal = results.criminal_info[i] if results.criminal_info|length > i else None %}
+                        <td class="px-4 py-2 border">{% if criminal %}{{ criminal[0] }}{% else %}-{% endif %}</td>
+                        <td class="px-4 py-2 border">{% if criminal %}{{ criminal[1] }}{% else %}-{% endif %}</td>
+                        <td class="px-4 py-2 border">{% if criminal %}{{ criminal[2] }}{% else %}-{% endif %}</td>
+                        <td class="px-4 py-2 border">{% if criminal %}{{ criminal[3] }}{% else %}-{% endif %}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
