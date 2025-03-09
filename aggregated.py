@@ -6,8 +6,7 @@ import os
 app = Flask(__name__)
 
 # Configure Gemini API
-genai.configure(api_key="AIzaSyCONB8fwncr6jp3HFenzYomUY15bdljjQw")  # Replace with your actual API key
-
+genai.configure(api_key="AIzaSyCONB8fwncr6jp3HFenzYomUY15bdljjQw")  
 # Connect to PostgreSQL Databases
 dbSqlp = psycopg2.connect(
     host="turntable.proxy.rlwy.net",
