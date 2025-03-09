@@ -42,6 +42,7 @@
             </div>
         </div>
 
+        {% if sql_query %}
         <div class="results-container">
             <div class="card sql-card">
                 <div class="card-header">
@@ -49,11 +50,12 @@
                 </div>
                 <div class="card-content">
                     <div class="sql-block">
-                        <pre>SELECT name, crime_type, location FROM criminals WHERE location LIKE '%New York%'</pre>
+                        <pre>{{ sql_query }}</pre>
                     </div>
                 </div>
             </div>
-
+        
+            {% if results %}
             <div class="card results-card">
                 <div class="card-header">
                     <h2>Results</h2>
@@ -63,33 +65,27 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Crime Type</th>
-                                    <th>Location</th>
+                                    {% for column in column_names %}
+                                        <th>{{ column }}</th>
+                                    {% endfor %}
                                 </tr>
                             </thead>
                             <tbody>
+                                {% for row in results %}
                                 <tr>
-                                    <td>John Doe</td>
-                                    <td>Theft</td>
-                                    <td>New York, Manhattan</td>
+                                    {% for cell in row %}
+                                        <td>{{ cell }}</td>
+                                    {% endfor %}
                                 </tr>
-                                <tr>
-                                    <td>Jane Smith</td>
-                                    <td>Fraud</td>
-                                    <td>New York, Brooklyn</td>
-                                </tr>
-                                <tr>
-                                    <td>Robert Johnson</td>
-                                    <td>Cybercrime</td>
-                                    <td>New York, Queens</td>
-                                </tr>
+                                {% endfor %}
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
+            {% endif %}
         </div>
+        {% endif %}
     </div>
 </body>
 </html>
