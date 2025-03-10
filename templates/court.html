@@ -21,11 +21,14 @@
         </div>
         
         <nav class="nav-links">
-          <a href="#" class="nav-link">Home</a>
-          <a href="#" class="nav-link">Police Station Information</a>
-          <a href="#" class="nav-link">Court Cases</a>
-          <a href="#" class="nav-link">Criminal Cases</a>
+          <a href="/" class="nav-link">Home</a>
+          <a href="/enterData/police" class="nav-link">Police Station Information</a>
+          <a href="/enterData/court" class="nav-link">Court Cases</a>
+          <a href="/enterData/criminal" class="nav-link">Criminal Cases</a>
         </nav>
+        <button class="sign-in-button">
+          Sign In
+        </button>
       </div>
     </header>
     
@@ -55,7 +58,7 @@
             <p class="form-subtitle">Enter the details of the Court Cases</p>
           </div>
           
-          <form id="police-form" class="police-form" method="POST" action="/court">
+          <form id="police-form" class="police-form" method="POST" action="/enterData/court">
             <div class="form-group">
               <label for="stationId" class="form-label">
                 <i class="fa-solid fa-scale-balanced"></i>

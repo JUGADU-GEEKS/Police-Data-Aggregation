@@ -1,7 +1,8 @@
 import psycopg2
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, Blueprint
 
-app = Flask(__name__)
+enterData = Blueprint('enterData', __name__)
+
 
 # Connect to PostgreSQL
 dbSqlp = psycopg2.connect(
@@ -33,7 +34,7 @@ dbSqlcc = psycopg2.connect(
 cursorSqlcc = dbSqlcc.cursor()
 
 
-@app.route('/police', methods=['GET', 'POST'])
+@enterData.route('/police', methods=['GET', 'POST'])
 def police():
     if request.method == 'POST':
         stationId = request.form['stationId']
@@ -51,7 +52,7 @@ def police():
         return render_template('police.html')
     return render_template('police.html')
 
-@app.route('/court', methods=['GET', 'POST'])
+@enterData.route('/court', methods=['GET', 'POST'])
 def court():
     if request.method == 'POST':
         courtId = request.form['courtId']
@@ -69,7 +70,7 @@ def court():
         
         return render_template('court.html')
     return render_template('court.html')
-@app.route('/criminal', methods=['GET', 'POST'])
+@enterData.route('/criminal', methods=['GET', 'POST'])
 def criminal():
     if request.method == 'POST':
         criminalId= request.form['criminalId']
@@ -88,9 +89,7 @@ def criminal():
         return render_template('criminal.html')
     return render_template('criminal.html')
 
-@app.route('/')
+@enterData.route('/')
 def index():
     return render_template('police.html')
 
-if __name__ == '__main__':
-    app.run(debug=True)

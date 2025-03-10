@@ -1,7 +1,7 @@
 import psycopg2
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, Blueprint
+search = Blueprint('search', __name__)
 
-app = Flask(__name__)
 
 # Database connections
 db_police = psycopg2.connect(
@@ -36,7 +36,7 @@ police_info_columns = ["station_id", "station_name", "location", "officer_name"]
 criminal_columns = ["criminalid", "name", "gender", "crimedesc", "status"]
 court_columns = ["course_id", "criminal_id", "crime_type", "court_hearing_date", "verdict", "police_station_id"]
 
-@app.route("/", methods=["GET", "POST"])
+@search.route("/", methods=["GET", "POST"])
 def index():
     police_info_columns_i = {}
     criminal_columns_i = {}
@@ -138,5 +138,3 @@ def index():
 
     return render_template("query.html")
 
-if __name__ == "__main__":
-    app.run(debug=True)

@@ -1,12 +1,15 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, Blueprint
 import psycopg2
+from dotenv import load_dotenv
+load_dotenv()
 import google.generativeai as genai
 import os
 
-app = Flask(__name__)
+aisearch = Blueprint('aisearch', __name__)
+api_key = os.getenv("GEMINI_API_KEY")
 
 # Configure Gemini API
-genai.configure(api_key="AIzaSyDCK5KJEnq4Ri5PHX0bAS_7MG_Yb_6yFjk")  
+genai.configure(api_key=api_key)  
 # Connect to PostgreSQL Databases
 dbSqlp = psycopg2.connect(
     host="turntable.proxy.rlwy.net",
@@ -36,12 +39,12 @@ dbSqlcc = psycopg2.connect(
 cursorSqlcc = dbSqlcc.cursor()
 
 # Route for Home Page
-@app.route('/')
+@aisearch.route('/')
 def index():
     return render_template('aggregated.html')
 
 # Route to Process Query
-@app.route('/query', methods=['POST'])
+@aisearch.route('/query', methods=['POST'])
 def process_query():
     user_query = request.form['userQuery']
 
@@ -119,6 +122,3 @@ below are the attributes names of this table
     except Exception as e:
         return render_template('aggregated.html', sql_query=sql_query, error=str(e))
 
-# Run Flask App
-if __name__ == '__main__':
-    app.run(debug=True)
